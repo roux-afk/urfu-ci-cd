@@ -1,0 +1,27 @@
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  image: python:3.10
+  script:
+    - echo "Установка зависимостей"
+    - pip install -r requirements.txt
+    - echo "Запуск юнит-тестов"
+    - python test_app.py
+  only:
+    - main
+    - master
+    - branches
+
+build:
+  stage: build
+  image: python:3.10
+  script:
+    - echo "Сборка приложения"
+    - python app.py
+  only:
+    - main
+    - master
+    - branches
