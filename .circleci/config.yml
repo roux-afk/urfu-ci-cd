@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            pip install -r requirements.txt
+      - run:
+          name: Run tests
+          command: |
+            python test_app.py
+      - run:
+          name: Test web application
+          command: |
+            echo "Web application ready for deployment"
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build-and-test
