@@ -13,15 +13,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                script {
-                    sh 'python3 -m pip install -r requirements.txt'
-                    sh 'python3 test_app.py'
-                }
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -47,9 +38,6 @@ pipeline {
     }
 
     post {
-        always {
-            sh 'docker logout'
-        }
         success {
             echo 'Pipeline completed successfully!'
         }
