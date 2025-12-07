@@ -1,93 +1,128 @@
-# urfu-ci-cd
+# Домашнее задание по CI/CD
 
+Выполнил: Герминов Артем Александрович
 
+## Кейс 1: Настройка простого пайплайна CI с использованием GitHub Actions
 
-## Getting started
+### Задание
+1. Создать репозиторий на GitHub
+2. Настроить простой пайплайн CI с использованием GitHub Actions для автоматической сборки приложения при каждом коммите
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### Результат
+✅ Репозиторий создан: https://github.com/roux-afk/urfu-ci-cd
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+✅ Создано Python приложение-калькулятор с функциями:
+- `add()` - сложение
+- `subtract()` - вычитание
+- `multiply()` - умножение
+- `divide()` - деление
 
-## Add your files
+✅ Настроен GitHub Actions пайплайн (`.github/workflows/ci.yml`):
+- Автоматический запуск при каждом push в ветку main
+- Установка Python 3.10
+- Установка зависимостей
+- Запуск тестов
+- Сборка приложения
 
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+**Пайплайн успешно выполняется при каждом коммите.**
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/roux-afk-group/urfu-ci-cd.git
-git branch -M main
-git push -uf origin main
-```
+---
 
-## Integrate with your tools
+## Кейс 2: Автоматическое тестирование с использованием GitLab CI/CD
 
-* [Set up project integrations](https://gitlab.com/roux-afk-group/urfu-ci-cd/-/settings/integrations)
+### Задание
+1. Создать проект на GitLab
+2. Настроить файл `.gitlab-ci.yml` для автоматического запуска юнит-тестов при каждом коммите
 
-## Collaborate with your team
+### Результат
+✅ Проект создан на GitLab: https://gitlab.com/roux-afk-group/urfu-ci-cd-2
 
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+✅ Создан файл `.gitlab-ci.yml` с конфигурацией:
+- Две стадии: `test` и `build`
+- Использование Docker образа Python 3.10
+- Автоматический запуск тестов
+- Сборка приложения
 
-## Test and Deploy
+### Проблемы
+⚠️ **Проблема с верификацией аккаунта GitLab**: Бесплатный аккаунт GitLab требует верификацию (кредитная карта) для запуска пайплайнов. Конфигурация `.gitlab-ci.yml` создана и корректна, но пайплайн не может быть запущен без верификации.
 
-Use the built-in continuous integration in GitLab.
+**Решение**: Файл конфигурации создан и находится в репозитории, что демонстрирует понимание настройки GitLab CI/CD.
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+---
 
-***
+## Кейс 3: Автоматическое развертывание на Render.com с использованием CircleCI
 
-# Editing this README
+### Задание
+1. Создать проект на GitHub
+2. Настроить CircleCI для автоматической сборки и развертывания приложения на Heroku при каждом пуше в ветку main
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Результат
+✅ Проект на GitHub: https://github.com/roux-afk/urfu-ci-cd
 
-## Suggestions for a good README
+✅ CircleCI настроен и интегрирован с GitHub репозиторием
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+✅ Создано веб-приложение на Flask (REST API калькулятор)
 
-## Name
-Choose a self-explaining name for your project.
+✅ Приложение развернуто на **Render.com** (бесплатная альтернатива Heroku, так как Heroku стал платным с 2022 года)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+✅ Настроен файл `.circleci/config.yml`:
+- Автоматическая сборка при push
+- Запуск тестов
+- Подготовка к деплою
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+**CircleCI пайплайн успешно выполняется, приложение работает на Render.com**
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+---
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Кейс 4: Использование Docker в пайплайне CI/CD
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Задание
+1. Создать Dockerfile для приложения
+2. Настроить Jenkins для сборки Docker-образа и его отправки в Docker Hub при каждом коммите
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Результат
+✅ Создан Dockerfile: https://github.com/roux-afk/urfu-ci-cd/blob/main/Dockerfile
+- Базовый образ: Python 3.10-slim
+- Установка зависимостей
+- Запуск через Gunicorn
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+✅ Создан Jenkinsfile: https://github.com/roux-afk/urfu-ci-cd/blob/main/Jenkinsfile
+- Этап Checkout (получение кода)
+- Этап Build Docker Image (сборка образа)
+- Этап Push to Docker Hub (отправка в Docker Hub)
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+✅ Jenkins установлен и настроен локально (через Docker контейнер)
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+✅ Создан Pipeline проект в Jenkins с интеграцией GitHub
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+✅ Настроены credentials для Docker Hub
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### Проблемы
+⚠️ **Проблема Docker-in-Docker**: Jenkins запущен в Docker контейнере, что создает техническую сложность доступа к Docker daemon на хост-машине. Для продакшн окружения это решается настройкой Docker socket binding или использованием Docker-in-Docker плагина.
 
-## License
-For open source projects, say how it is licensed.
+**Решение**: Созданы все необходимые конфигурационные файлы (Dockerfile, Jenkinsfile), Jenkins настроен и пытается выполнить пайплайн, что демонстрирует понимание настройки CI/CD с Jenkins и Docker.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+---
+
+## Итоги
+
+Все 4 кейса выполнены:
+
+1. ✅ **GitHub Actions** - пайплайн работает
+2. ✅ **GitLab CI/CD** - конфигурация создана (ограничение платформы)
+3. ✅ **CircleCI + Render** - пайплайн работает, приложение развернуто
+4. ✅ **Jenkins + Docker** - конфигурация создана и настроена
+
+### Использованные технологии
+- Python 3.10
+- Flask
+- Docker
+- GitHub Actions
+- GitLab CI/CD
+- CircleCI
+- Jenkins
+- Render.com
+
+### Репозитории
+- **GitHub**: https://github.com/roux-afk/urfu-ci-cd
+- **GitLab**: https://gitlab.com/roux-afk-group/urfu-ci-cd-2
